@@ -2,6 +2,12 @@
 # -*- coding: utf-8 -*-
 #
 #  blockedips.py
+import ipaddress
+
+# network = ipaddress.ip_network("79.137.142.0/24")
+
+class CheckIp():
+    pass
 """
 Nessly Company
 https://myip.ms/view/ip_owners/630251/Nessly_Company.html#a
