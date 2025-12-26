@@ -4,10 +4,34 @@
 #  blockedips.py
 import ipaddress
 
-# network = ipaddress.ip_network("79.137.142.0/24")
-
 class CheckIp():
-    pass
+    def __init__(self):
+        self.__tpl_fbd = ( '79.137.156.0/24',
+                           '79.137.143.0/24',
+                           '95.163.144.0/24',
+                           '89.208.31.0/24', 
+                           '79.137.130.0/24',
+                           '79.137.138.0/24',
+                           '79.137.151.0/24',
+                           '79.137.142.0/24',
+                        )
+
+    def isForbidden(self, ip: str) -> bool:
+        """
+        Проверяет, принадлежит ли указанный IP-адрес к запрещенному диапазону.
+
+        Параметры:
+          ip (str): IP-адрес в строковом формате.
+
+        Возвращает:
+          bool: True, если IP-адрес принадлежит к запрещенному диапазону, иначе False.
+        """
+        for i in self.__tpl_fbd:
+            network = ipaddress.ip_network(i)
+            if ipaddress.ip_address(ip) in network:
+                return True
+        return False
+    
 """
 Nessly Company
 https://myip.ms/view/ip_owners/630251/Nessly_Company.html#a
